@@ -7,7 +7,7 @@ namespace Cannon
         public Vector2 horizontalAngleRange;
         public Vector2 verticalAngleRange;
 
-        public Vector2 shootingPowerRange;
+        public Vector2 initialVelocityRange;
     
         // Start is called before the first frame update
         void Start()

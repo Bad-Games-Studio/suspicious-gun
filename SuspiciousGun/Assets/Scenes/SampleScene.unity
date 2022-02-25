@@ -251,7 +251,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   horizontalAngleRange: {x: -90, y: 90}
   verticalAngleRange: {x: 0, y: 45}
-  shootingPowerRange: {x: 0, y: 0}
+  initialVelocityRange: {x: 5, y: 100}
 --- !u!4 &290663426 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 422446, guid: d3ef549050e9b0542b4f3c3dd47a1085, type: 3}
@@ -459,8 +459,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: -10}
+  m_LocalRotation: {x: -0.13655373, y: 0.3379558, z: -0.049630582, w: -0.9298794}
+  m_LocalPosition: {x: 21.085499, y: 11.474716, z: -6.811821}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
