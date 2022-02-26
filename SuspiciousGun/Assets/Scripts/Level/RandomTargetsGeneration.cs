@@ -17,8 +17,9 @@ namespace Level
             for (var i = 0; i < numberOfTargets; ++i)
             {
                 var position = RandomCoordinates();
-                var instance = Instantiate(targetPrefab, position, Quaternion.identity);
+                InstantiateTargetAt(position);
             }
+            SetKinematicRigidBodyRecursive(true);
         }
 
         private Vector3 RandomCoordinates()
@@ -27,6 +28,21 @@ namespace Level
             var y = Random.Range(targetSpaceBorderMin.y, targetSpaceBorderMax.y);
             var z = Random.Range(targetSpaceBorderMin.z, targetSpaceBorderMax.z);
             return new Vector3(x, y, z);
+        }
+
+        private void InstantiateTargetAt(Vector3 position)
+        {
+            var targetObject = Instantiate(targetPrefab, position, Quaternion.identity);
+            targetObject.transform.parent = transform;
+        }
+
+        private void SetKinematicRigidBodyRecursive(bool value)
+        {
+            var rigidBodyComponents = GetComponentsInChildren<Rigidbody>();
+            foreach (var component in rigidBodyComponents)
+            {
+                component.isKinematic = value;
+            }
         }
     }
 }
