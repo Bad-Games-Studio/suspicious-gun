@@ -252,9 +252,30 @@ MonoBehaviour:
   horizontalAngleRange: {x: -90, y: 90}
   verticalAngleRange: {x: 0, y: 70}
   initialVelocityRange: {x: 5, y: 100}
+  turnSpeed: 0.2
+--- !u!114 &63335217
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 63335215}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e0434a2200fe2140aa9f4a9fbc8e4ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  carriage: {fileID: 2084198972}
+  barrel: {fileID: 488139005}
+  animationLengthSeconds: 2
 --- !u!4 &290663426 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 422446, guid: d3ef549050e9b0542b4f3c3dd47a1085, type: 3}
+  m_PrefabInstance: {fileID: 63335214}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &488139005 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 158526, guid: d3ef549050e9b0542b4f3c3dd47a1085, type: 3}
   m_PrefabInstance: {fileID: 63335214}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &705507993
@@ -486,6 +507,11 @@ MonoBehaviour:
 Transform:
   m_CorrespondingSourceObject: {fileID: 7141487880864668812, guid: 395d9ea00c9d17d4b9d6ace52935e3e8, type: 3}
   m_PrefabInstance: {fileID: 7141487879304432181}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2084198972 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 175380, guid: d3ef549050e9b0542b4f3c3dd47a1085, type: 3}
+  m_PrefabInstance: {fileID: 63335214}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &2096359945
 GameObject:
