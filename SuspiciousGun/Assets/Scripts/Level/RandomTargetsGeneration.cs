@@ -12,7 +12,7 @@ namespace Level
 
         public GameObject targetPrefab;
         
-        private void Start()
+        private void Awake()
         {
             for (var i = 0; i < numberOfTargets; ++i)
             {

@@ -13,7 +13,12 @@ namespace Cannon
         public float animationLengthSeconds;
 
         public bool IsRotating => _animationTime < animationLengthSeconds;
-        
+
+        public float Yaw => carriage.transform.rotation.eulerAngles.y;
+        public float Pitch => -barrel.transform.rotation.eulerAngles.x;
+
+        public Vector3 Position => barrel.transform.position;
+
         private float _animationTime;
         
         private Quaternion _sourceCarriageRotation;

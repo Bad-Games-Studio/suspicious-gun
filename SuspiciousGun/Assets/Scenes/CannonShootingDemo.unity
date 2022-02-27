@@ -160,7 +160,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 422446, guid: d3ef549050e9b0542b4f3c3dd47a1085, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -20
       objectReference: {fileID: 0}
     - target: {fileID: 422446, guid: d3ef549050e9b0542b4f3c3dd47a1085, type: 3}
       propertyPath: m_LocalRotation.w
@@ -250,9 +250,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   horizontalAngleRange: {x: -90, y: 90}
-  verticalAngleRange: {x: 0, y: 70}
-  initialVelocityRange: {x: 5, y: 100}
-  turnSpeed: 0.2
+  verticalAngleRange: {x: 0, y: 80}
+  shotDelay: 1
+  projectilePrefab: {fileID: 4146846949898082480, guid: 3999f33f7338c3248966e781af84cdfd, type: 3}
 --- !u!114 &63335217
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -481,8 +481,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_LocalRotation: {x: -0.0729885, y: 0.20904173, z: -0.01565143, w: -0.9750535}
-  m_LocalPosition: {x: 27.3412, y: 23.920118, z: -31.497776}
+  m_LocalRotation: {x: -0.03659992, y: -0.24798962, z: -0.009339225, w: 0.9680261}
+  m_LocalPosition: {x: 21.453884, y: 6.3864546, z: -28.907715}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -538,7 +538,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2096359945}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 17.58, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 883129690}
