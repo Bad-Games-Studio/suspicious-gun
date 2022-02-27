@@ -10,13 +10,15 @@ namespace Cannon
     public class CannonShooting : MonoBehaviour
     {
         public Vector2 horizontalAngleRange;
-        public Vector2 verticalAngleRange;
 
         public float shotDelay;
+        
+        public float targetVerticalOffset = 3;
 
         public GameObject projectilePrefab;
 
 
+        
         private Transform Target => 
             _currentTarget < _targets.Count ?
                 _targets[_currentTarget] :
@@ -33,6 +35,7 @@ namespace Cannon
 
         private Vector3 _forward;
         private const float CannonAngle = 45;
+
 
         private void Start()
         {
@@ -119,9 +122,12 @@ namespace Cannon
         
         private List<Transform> FindAllTargets()
         {
-            var targets = 
-                FindObjectsOfType<CannonTarget>()
-                .Select(target => target.transform).ToList();
+            var targets = (
+                from target in FindObjectsOfType<CannonTarget>() 
+                where target.IsRoot
+                select target.transform)
+                .ToList();
+
             targets.Sort(CompareTargets);
             return targets;
         }
@@ -159,13 +165,13 @@ namespace Cannon
             _cannonRotationController.SetRotation(yaw, CannonAngle);
         }
 
-        private static float GetInitialVelocity(Vector3 from, Vector3 to)
+        private float GetInitialVelocity(Vector3 from, Vector3 to)
         {
             // Derived from projectile motion formulas,
             // Simplified for angle = 45 degrees.
             // Took me a whole day to make at least something that can work.
             var s = Vector3Extensions.HorizontalDistance(from, to);
-            var h = Vector3Extensions.VerticalDistance(from, to);
+            var h = Vector3Extensions.VerticalDistance(from, to) + targetVerticalOffset;
             var g = Math.Abs(Physics.gravity.y);
             var v0 = Math.Sqrt(g * s * s / (s - h));
             return (float) v0;

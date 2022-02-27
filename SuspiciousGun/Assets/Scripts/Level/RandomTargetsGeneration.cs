@@ -19,7 +19,7 @@ namespace Level
                 var position = RandomCoordinates();
                 InstantiateTargetAt(position);
             }
-            SetKinematicRigidBodyRecursive(true);
+            InstantiateTargetAt(new Vector3(-50, 10, 0));
         }
 
         private Vector3 RandomCoordinates()
@@ -34,15 +34,6 @@ namespace Level
         {
             var targetObject = Instantiate(targetPrefab, position, Quaternion.identity);
             targetObject.transform.parent = transform;
-        }
-
-        private void SetKinematicRigidBodyRecursive(bool value)
-        {
-            var rigidBodyComponents = GetComponentsInChildren<Rigidbody>();
-            foreach (var component in rigidBodyComponents)
-            {
-                component.isKinematic = value;
-            }
         }
     }
 }

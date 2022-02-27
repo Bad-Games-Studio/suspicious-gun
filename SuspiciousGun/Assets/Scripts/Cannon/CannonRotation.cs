@@ -58,8 +58,7 @@ namespace Cannon
         public void SetRotation(float yaw, float pitch)
         {
             yaw = ValidateYaw(yaw);
-            pitch = ValidatePitch(pitch);
-            
+
             _animationTime = 0;
             
             _sourceCarriageRotation = carriage.transform.rotation;
@@ -83,21 +82,6 @@ namespace Cannon
             }
 
             return yaw;
-        }
-
-        private float ValidatePitch(float pitch)
-        {
-            if (pitch < _cannonParameters.verticalAngleRange.x)
-            {
-                return _cannonParameters.verticalAngleRange.x;
-            }
-
-            if (pitch > _cannonParameters.verticalAngleRange.y)
-            {
-                return _cannonParameters.verticalAngleRange.y;
-            }
-
-            return pitch;
         }
     }
 }
