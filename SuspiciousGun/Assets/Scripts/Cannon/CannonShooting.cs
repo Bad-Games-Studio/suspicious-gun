@@ -11,9 +11,7 @@ namespace Cannon
     {
         public Vector2 horizontalAngleRange;
 
-        public float shotDelay;
-        
-        public float targetVerticalOffset = 3;
+        public float shotCooldown;
 
         public GameObject projectilePrefab;
 
@@ -85,7 +83,7 @@ namespace Cannon
                 _shotCooldownTimer = 0;
             }
 
-            if (_shotCooldownTimer < shotDelay)
+            if (_shotCooldownTimer < shotCooldown)
             {
                 _shotCooldownTimer += Time.deltaTime;
                 return;
@@ -107,7 +105,10 @@ namespace Cannon
 
         private void ShootProjectile()
         {
-            var projectile = Instantiate(projectilePrefab, _cannonRotationController.Position, Quaternion.identity);
+            var projectile = Instantiate(
+                projectilePrefab, 
+                _cannonRotationController.Position, 
+                Quaternion.identity);
             var projectileBody = projectile.GetComponent<Rigidbody>();
             projectileBody.velocity = _projectileInitialVelocity;
         }
@@ -115,8 +116,10 @@ namespace Cannon
         private int CompareTargets(Transform left, Transform right)
         {
             // CompareTo is bad, I really miss `std::less`.
-            var leftDistance  = Vector3Extensions.HorizontalDistance(left.position, _cannonRotationController.Position);
-            var rightDistance = Vector3Extensions.HorizontalDistance(right.position, _cannonRotationController.Position);
+            var leftDistance  = Vector3Extensions.HorizontalDistance(
+                left.position, _cannonRotationController.Position);
+            var rightDistance = Vector3Extensions.HorizontalDistance(
+                right.position, _cannonRotationController.Position);
             return leftDistance.CompareTo(rightDistance);
         }
         
@@ -145,8 +148,9 @@ namespace Cannon
 
         private void SetupForShot()
         {
+            var cannonTarget = Target.GetComponent < CannonTarget>();
             var from = _cannonRotationController.Position;
-            var to   = Target.transform.position;
+            var to   = Target.transform.position + cannonTarget.hitboxOffset;
             var initialVelocity = GetInitialVelocity(from, to);
             
             var direction = to - from;
@@ -171,7 +175,7 @@ namespace Cannon
             // Simplified for angle = 45 degrees.
             // Took me a whole day to make at least something that can work.
             var s = Vector3Extensions.HorizontalDistance(from, to);
-            var h = Vector3Extensions.VerticalDistance(from, to) + targetVerticalOffset;
+            var h = Vector3Extensions.VerticalDistance(from, to);
             var g = Math.Abs(Physics.gravity.y);
             var v0 = Math.Sqrt(g * s * s / (s - h));
             return (float) v0;

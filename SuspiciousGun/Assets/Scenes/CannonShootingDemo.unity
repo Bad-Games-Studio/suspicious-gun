@@ -250,8 +250,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   horizontalAngleRange: {x: -90, y: 90}
-  verticalAngleRange: {x: 0, y: 80}
-  shotDelay: 1
+  shotCooldown: 1
+  targetVerticalOffset: 3
   projectilePrefab: {fileID: 4146846949898082480, guid: 3999f33f7338c3248966e781af84cdfd, type: 3}
 --- !u!114 &63335217
 MonoBehaviour:

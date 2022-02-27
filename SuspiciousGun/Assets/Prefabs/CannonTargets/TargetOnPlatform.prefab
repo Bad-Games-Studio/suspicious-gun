@@ -259,6 +259,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33216a53a525796499f9220cc11adbc1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hitboxOffset: {x: 0, y: 3, z: 0}
 --- !u!1001 &8034431910486372028
 PrefabInstance:
   m_ObjectHideFlags: 0

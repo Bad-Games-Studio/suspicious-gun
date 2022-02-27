@@ -5,6 +5,8 @@ namespace Cannon
     public class CannonTarget : MonoBehaviour
     {
         public bool IsRoot => _parent == null;
+
+        public Vector3 hitboxOffset;
         
         private CannonTarget _parent;
 
