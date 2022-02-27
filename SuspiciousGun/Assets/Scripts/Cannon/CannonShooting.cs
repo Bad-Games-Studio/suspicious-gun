@@ -169,7 +169,7 @@ namespace Cannon
             _cannonRotationController.SetRotation(yaw, CannonAngle);
         }
 
-        private float GetInitialVelocity(Vector3 from, Vector3 to)
+        private static float GetInitialVelocity(Vector3 from, Vector3 to)
         {
             // Derived from projectile motion formulas,
             // Simplified for angle = 45 degrees.
