@@ -19,7 +19,6 @@ namespace Level
                 var position = RandomCoordinates();
                 InstantiateTargetAt(position);
             }
-            InstantiateTargetAt(new Vector3(-50, 10, 0));
         }
 
         private Vector3 RandomCoordinates()
